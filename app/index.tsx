@@ -1,20 +1,24 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, useColorScheme } from "react-native";
 import { Link } from "expo-router";
 import logo from "../assets/images/favicon.png";
+import { colors } from "@/constants/color";
 
 export default function Index() {
   // we are using react-native components directly here
   // View and Text are from react-native
 
+  const colorScheme = useColorScheme();
+  const theme = colorScheme === "dark" ? colors.dark : colors.light;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Image
         source={logo}
         style={{ width: 100, height: 100, marginVertical: 40 }}
       />
       <Text
         style={{
-          color: "white",
+          color: theme.text,
           fontSize: 20,
           fontWeight: "bold",
           textAlign: "center",
@@ -53,7 +57,7 @@ export default function Index() {
       >
         <Text
           style={{
-            color: "black",
+            color: theme.text,
             fontSize: 16,
             fontWeight: "bold",
             textAlign: "center",
@@ -65,7 +69,7 @@ export default function Index() {
       <Link
         href="/about"
         style={{
-          color: "white",
+          color: theme.text,
           fontFamily: "Courier New",
           fontSize: 16,
           fontWeight: "bold",
@@ -87,7 +91,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#1A1A1A",
     padding: 20,
     // This does nothing in a View
     // color: "white",

@@ -1,5 +1,7 @@
 import { Stack } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, useColorScheme, View } from "react-native";
+import { colors } from "@/constants/color";
+import { StatusBar } from "expo-status-bar";
 
 // stack is used to render the navigation stack
 // it will render the current screen and any nested screens
@@ -9,13 +11,19 @@ import { Text, View } from "react-native";
 // we can open the stack and mention the screens we want to render
 // the stack will automatically handle the navigation between these screens
 export default function RootLayout() {
+  // useColorScheme is used to get the current color scheme of the device
+  const colorScheme = useColorScheme();
+  const theme = colorScheme === "dark" ? colors.dark : colors.light;
+
   return (
-    <View style={{ flex: 1, backgroundColor: "#1A1A1A" }}>
+    <View style={{ flex: 1, backgroundColor: theme.background }}>
+      {/* @ts-ignore */}
+      <StatusBar value="auto" />
       <Stack
         screenOptions={{
           headerShown: true,
-          headerStyle: { backgroundColor: "#1A1A1A" },
-          headerTintColor: "white",
+          headerStyle: { backgroundColor: theme.background },
+          headerTintColor: theme.text,
           headerTitleStyle: { fontFamily: "Courier New" },
         }}
       >
@@ -29,7 +37,7 @@ export default function RootLayout() {
         style={{
           textAlign: "center",
           fontSize: 16,
-          color: "white",
+          color: theme.text,
           marginVertical: 20,
           fontFamily: "Courier New",
         }}
