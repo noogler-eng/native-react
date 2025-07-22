@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { Text, useColorScheme, View } from "react-native";
 import { colors } from "@/constants/color";
 import { StatusBar } from "expo-status-bar";
+import ThemedView from "@/components/ThemedView";
 
 // stack is used to render the navigation stack
 // it will render the current screen and any nested screens
@@ -16,7 +17,7 @@ export default function RootLayout() {
   const theme = colorScheme === "dark" ? colors.dark : colors.light;
 
   return (
-    <View style={{ flex: 1, backgroundColor: theme.background }}>
+    <ThemedView style={{ flex: 1 }}>
       {/* @ts-ignore */}
       <StatusBar value="auto" />
       <Stack
@@ -44,6 +45,6 @@ export default function RootLayout() {
       >
         Footer
       </Text>
-    </View>
+    </ThemedView>
   );
 }

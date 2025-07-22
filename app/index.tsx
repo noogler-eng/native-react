@@ -2,6 +2,8 @@ import { Text, View, StyleSheet, Image, useColorScheme } from "react-native";
 import { Link } from "expo-router";
 import logo from "../assets/images/favicon.png";
 import { colors } from "@/constants/color";
+import ThemedCard from "@/components/ThemedCard";
+import Spacer from "@/components/Spacer";
 
 export default function Index() {
   // we are using react-native components directly here
@@ -27,6 +29,7 @@ export default function Index() {
       >
         Edit app/index.tsx to edit this screen.
       </Text>
+      <Spacer />
       <Text
         style={{
           color: "red",
@@ -36,7 +39,9 @@ export default function Index() {
       >
         Edit app/index.tsx to edit this screen.
       </Text>
-      <View
+      <Spacer />
+
+      <ThemedCard
         style={{
           backgroundColor: "gray",
           padding: 20,
@@ -65,7 +70,8 @@ export default function Index() {
         >
           Hello this is a card
         </Text>
-      </View>
+      </ThemedCard>
+
       <Link
         href="/about"
         style={{
