@@ -86,6 +86,51 @@ export default function Index() {
       >
         /About
       </Link>
+
+      <Link
+        href="/login"
+        style={{
+          color: theme.text,
+          fontFamily: "Courier New",
+          fontSize: 16,
+          fontWeight: "bold",
+          textAlign: "center",
+          marginTop: 20,
+          textDecorationLine: "underline",
+        }}
+      >
+        /Login
+      </Link>
+
+      <Link
+        href="/register"
+        style={{
+          color: theme.text,
+          fontFamily: "Courier New",
+          fontSize: 16,
+          fontWeight: "bold",
+          textAlign: "center",
+          marginTop: 20,
+          textDecorationLine: "underline",
+        }}
+      >
+        /register
+      </Link>
+
+      <Link
+        href="/profile"
+        style={{
+          color: theme.text,
+          fontFamily: "Courier New",
+          fontSize: 16,
+          fontWeight: "bold",
+          textAlign: "center",
+          marginTop: 20,
+          textDecorationLine: "underline",
+        }}
+      >
+        /profile
+      </Link>
     </View>
   );
 }
