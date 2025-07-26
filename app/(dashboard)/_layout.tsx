@@ -1,8 +1,8 @@
-import { Stack, Tabs } from "expo-router";
-import { Text, useColorScheme, View } from "react-native";
+import { Tabs } from "expo-router";
+import { useColorScheme } from "react-native";
 import { colors } from "@/constants/color";
-import { StatusBar } from "expo-status-bar";
 import ThemedView from "@/components/ThemedView";
+import { Camera } from "lucide-react-native";
 
 export default function DashboardLayout() {
   const colorScheme = useColorScheme();
@@ -27,23 +27,31 @@ export default function DashboardLayout() {
           name="books"
           options={{
             title: "Books",
-            // tabBarIcon: <Text>💩</Text>,
+            tabBarIcon: ({ focused, color, size }) => (
+              <Camera color={focused ? "white" : color} size={size} />
+            ),
             tabBarLabel: "Books",
           }}
         />
+
         <Tabs.Screen
           name="create"
           options={{
             title: "Create",
-            // tabBarIcon: "plus-circle",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Camera color={focused ? "white" : color} size={size} />
+            ),
             tabBarLabel: "Create",
           }}
         />
+
         <Tabs.Screen
           name="profile"
           options={{
             title: "Profile",
-            // tabBarIcon: "user",
+            tabBarIcon: ({ focused, color, size }) => (
+              <Camera color={focused ? "white" : color} size={size} />
+            ),
             tabBarLabel: "Profile",
           }}
         />
