@@ -1,9 +1,18 @@
-import { Text, View, StyleSheet, Image, useColorScheme } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  useColorScheme,
+  Alert,
+  Button,
+} from "react-native";
 import { Link } from "expo-router";
 import logo from "../assets/images/favicon.png";
 import { colors } from "@/constants/color";
 import ThemedCard from "@/components/ThemedCard";
 import Spacer from "@/components/Spacer";
+import { client } from "@/lib/appwrite";
 
 export default function Index() {
   // we are using react-native components directly here
@@ -11,6 +20,16 @@ export default function Index() {
 
   const colorScheme = useColorScheme();
   const theme = colorScheme === "dark" ? colors.dark : colors.light;
+
+  const handlePing = async () => {
+    // try {
+    //   // @ts-ignore
+    //   const res = await client.call("get", "/health");
+    //   Alert.alert("Ping Successful", JSON.stringify(res));
+    // } catch (err) {
+    //   Alert.alert("Ping Failed", JSON.stringify(err));
+    // }
+  };
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
@@ -71,6 +90,8 @@ export default function Index() {
           Hello this is a card
         </Text>
       </ThemedCard>
+
+      <Button title="Send a ping" onPress={handlePing} />
 
       <Link
         href="/about"
