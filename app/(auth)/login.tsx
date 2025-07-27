@@ -22,6 +22,11 @@ export default function Login() {
 
   const handleSubmit = () => {
     console.log("Login button pressed", credentials);
+    try {
+      login(credentials.email, credentials.password);
+    } catch (error) {
+      console.error("Login failed", error);
+    }
   };
 
   // whenever we press anywhere outside the TextInput, we want to dismiss the keyboard
