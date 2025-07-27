@@ -12,7 +12,7 @@ import logo from "../assets/images/favicon.png";
 import { colors } from "@/constants/color";
 import ThemedCard from "@/components/ThemedCard";
 import Spacer from "@/components/Spacer";
-import { client } from "@/lib/appwrite";
+// import { client } from "@/lib/appwrite";
 
 export default function Index() {
   // we are using react-native components directly here
@@ -65,7 +65,6 @@ export default function Index() {
           backgroundColor: "gray",
           padding: 20,
           borderRadius: 10,
-          marginTop: 20,
           width: "100%",
           maxWidth: 400,
           shadowColor: "#000",
@@ -91,7 +90,9 @@ export default function Index() {
         </Text>
       </ThemedCard>
 
+      <Spacer />
       <Button title="Send a ping" onPress={handlePing} />
+      <Spacer />
 
       <Link
         href="/about"
